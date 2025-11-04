@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Add Book</title>
+<link rel="stylesheet" href="style.css">
+<script src="main.js" defer></script>
+</head>
+<body>
+<div class="container card">
+<h2>Add Book / Movie</h2>
+<form id="addBookForm">
+<div class="row">
+<label><input type="radio" name="type" value="Book" checked> Book</label>
+<label><input type="radio" name="type" value="Movie"> Movie</label>
+</div>
+<label>Title</label>
+<input type="text" id="add_title" required>
+<label>Author / Director</label>
+<input type="text" id="add_author" required>
+<label>Serial No</label>
+<input type="text" id="add_serial" required>
+<label>Available</label>
+<input type="checkbox" id="add_available" checked>
+<br>
+<button type="submit">Add</button>
+</form>
+<p><a href="maintenance.html">Back</a></p>
+</div>
+
+
+<script>
+document.getElementById('addBookForm').addEventListener('submit', function(e){
+e.preventDefault();
+const t

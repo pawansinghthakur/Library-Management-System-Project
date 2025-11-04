@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Library Management - Login</title>
+<link rel="stylesheet" href="style.css">
+<script src="main.js" defer></script>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>Library Management System</h1>
+</header>
+
+
+<main class="card">
+<h2>Login</h2>
+<form id="loginForm">
+<label>Username</label>
+<input type="text" id="loginUsername" required>
+
+
+<label>Password</label>
+<input type="password" id="loginPassword" required>
+
+
+<div class="row">
+<label><input type="radio" name="role" value="admin" required> Admin</label>
+<label><input type="radio" name="role" value="user" required> User</label>
+</div>
+
+
+<button type="submit">Login</button>
+</form>
+
+
+<p class="muted">(This is frontend-only. Role decides which dashboard opens.)</p>
+</main>
+
+
+<footer class="muted">&copy; Library Management</footer>
+</div>
+
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e){
+e.preventDefault();
+const role = document.querySelector('input[name="role"]:checked').value;
+// store username for greeting
+const uname = document.getElementById('loginUsername').value || role;
+localStorage.setItem('lms_user', JSON.stringify({username: uname, role}));
+if(role === 'admin') location.href = 'admin.html';
+else location.href = 'user.html';
+});
+</script>
+</body>
+</html>
